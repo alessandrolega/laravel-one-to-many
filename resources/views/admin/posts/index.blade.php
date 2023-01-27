@@ -12,6 +12,7 @@
         <th scope="col">#id</th>
         <th scope="col">Title</th>
         <th scope="col">Body</th>
+        <th scope="col">Category_id</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -22,6 +23,11 @@
         <td>{{$post->id}}</td>
         <td>{{$post->title}}</td>
         <td>{{$post->body}}</td>
+        <td>
+          @if ($post->Category)
+            {{$post->Category['name']}}
+          @endif
+        </td>
         <td>
             <a href="{{route('admin.posts.show', $post->id)}}">
                 <i class="fa-solid fa-eye"></i>
